@@ -113,7 +113,7 @@ CErrorReport g_ErrorReport;
 BOOL g_bMinimizedEnabled = FALSE;
 int g_iScreenSaverOldValue = 60 * 15;
 
-extern float g_fScreenRate_x;	// ¡Ø
+extern float g_fScreenRate_x;	// ï¿½ï¿½
 extern float g_fScreenRate_y;
 
 #if defined USER_WINDOW_MODE || (defined WINDOWMODE)
@@ -1094,15 +1094,15 @@ BOOL OpenInitFile()
 		break;
 	case 3:
 		WindowWidth = 1280;
-		WindowHeight = 1024;
+		WindowHeight = 768;
 		break;
 	case 4:
-		WindowWidth = 1600;
-		WindowHeight = 1200;
+		WindowWidth = 1360;
+		WindowHeight = 768;
 		break;
 	case 5:
-		WindowWidth = 1864;
-		WindowHeight = 1400;
+		WindowWidth = 1440;
+		WindowHeight = 900;
 		break;
 	case 6:
 		WindowWidth = 1600;
@@ -1119,10 +1119,6 @@ BOOL OpenInitFile()
 	case 9:
 		WindowWidth = 1920;
 		WindowHeight = 1080;
-		break;
-	case 10:
-		WindowWidth = 2560;
-		WindowHeight = 1440;
 		break;
 	default:
 		WindowWidth = 640;
@@ -1155,7 +1151,7 @@ BOOL Util_CheckOption(char* lpszCommandLine, unsigned char cOption, char* lpszSt
 	{
 		lpFound = (unsigned char*)strchr((char*)(lpFound + 1), nFind);
 		if (lpFound && (*(lpFound + 1) == cComp[0] || *(lpFound + 1) == cComp[1]))
-		{	// ¹ß°ß
+		{	// ï¿½ß°ï¿½
 			if (lpszString)
 			{
 				int nCount = 0;
@@ -1182,7 +1178,7 @@ BOOL UpdateFile(char* lpszOld, char* lpszNew)
 	DWORD dwStartTickCount = ::GetTickCount();
 	while (::GetTickCount() - dwStartTickCount < 5000) {
 		if (CopyFile(lpszOld, lpszNew, FALSE))
-		{	// ¼º°ø
+		{	// ï¿½ï¿½ï¿½ï¿½
 			DeleteFile(lpszOld);
 			return (TRUE);
 		}
@@ -1445,6 +1441,11 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLin
 	case 800:FontHeight = 13; break;
 	case 1024:FontHeight = 14; break;
 	case 1280:FontHeight = 15; break;
+	case 1360:FontHeight = 14; break;
+	case 1440:FontHeight = 16; break;
+	case 1600:FontHeight = 16; break;
+	case 1680:FontHeight = 16; break;
+	case 1920:FontHeight = 18; break;
 	}
 
 	int nFixFontHeight = 13;
